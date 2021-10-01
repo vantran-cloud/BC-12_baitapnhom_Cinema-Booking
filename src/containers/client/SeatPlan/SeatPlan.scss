@@ -1,0 +1,67 @@
+.content {
+  padding: 30px;
+  background-color: rgb(43, 43, 43);
+  color: orange;
+  .btn-booking {
+    width: 100%;
+    background-image: linear-gradient(
+      to right,
+      rgb(255, 200, 49),
+      rgb(255, 166, 0)
+    );
+    height: 40px;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+  }
+  h3 {
+    color: orange;
+  }
+  .right {
+    box-shadow: 2px 3px 12px 8px rgba(255, 255, 255, 0.8);
+    padding: 20px;
+  }
+}
+
+.trapezoid {
+  border-bottom: 50px solid rgb(204, 204, 204);
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  height: 0;
+  width: 90%;
+  filter: drop-shadow(3px 56px 46px #ffffff);
+  margin-bottom: 20px;
+}
+
+// ghế thường
+.ghe {
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin: 2px;
+  background-color: grey;
+  color: white;
+}
+
+
+//ghế đã đặt
+.gheDaDat {
+  background-color: red;
+  cursor: no-drop;
+}
+
+//ghế đang chọn
+.gheDangChon {
+  background-color: green !important;
+}
+
+
+// ghế VIP
+.gheVip {
+  background-color: orange;
+}
+

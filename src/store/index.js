@@ -1,10 +1,37 @@
-import { createStore, combineReducers } from 'redux';
+import movieReducer from "containers/client/Home/module/reducers";
+import movieDetailReducer from "containers/client/MovieDetail/module/reducers";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import theaterReducer from "containers/client/Home/Theater/module/reducers";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension";
+import authReducer from "containers/shared/Auth/module/reducers";
+import bookingTicketsReducer from "containers/client/SeatPlan/module/reducers";
+import userListReducer from "containers/shared/Auth/Register/module/reducers";
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  movieReducer,
+  movieDetailReducer,
+  theaterReducer,
+  authReducer,
+  bookingTicketsReducer,
+  userListReducer,
+});
+
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: ['authReducer'],
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = createStore(
-    rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  persistedReducer,
+  composeWithDevTools(applyMiddleware(thunk))
 );
 
-export default store
+const persistor = persistStore(store)
+
+export { store, persistor };
