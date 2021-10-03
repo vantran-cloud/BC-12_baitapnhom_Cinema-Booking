@@ -6,11 +6,11 @@ import React, { Component } from 'react'
 class ClientLayout extends Component {
     render() {
         return (
-            <div>
+            <>
                 <Header />
                 {this.props.children}
                 <Footer />
-            </div>
+            </>
         )
     }
 }

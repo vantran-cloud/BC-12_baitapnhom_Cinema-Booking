@@ -40,7 +40,7 @@
   width: 35px;
   height: 35px;
   border-radius: 5px;
-  border: none;
+  // border: none;
   cursor: pointer;
   margin: 2px;
   background-color: grey;
@@ -50,7 +50,7 @@
 
 //ghế đã đặt
 .gheDaDat {
-  background-color: red;
+  background-color: red !important;
   cursor: no-drop;
 }
 
