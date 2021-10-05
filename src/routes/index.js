@@ -1,3 +1,4 @@
+import LichSuDatVe from "components/LichSuDatVe/LichSuDatVe"
 import Application from "containers/client/Application/Application"
 import Contact from "containers/client/Contact/Contact"
 import Home from "containers/client/Home/Home"
@@ -41,6 +42,12 @@ export const clientRoutes = [
         component: SeatPlan,
         exact: false,
         isPrivate: true,
+    },
+    {
+        path: '/lichSuDatVe',
+        component: LichSuDatVe,
+        exact: false,
+        isPrivate: false,
     },
    
 ];

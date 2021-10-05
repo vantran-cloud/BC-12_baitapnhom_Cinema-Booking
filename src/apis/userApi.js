@@ -12,7 +12,11 @@ const userApi = {
 
     fetchListUser() {
         return callApi(`QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${GROUP_ID}`)
-    }
+    },
+
+    lichSuDatVeApi(username) {
+        return callApi('QuanLyNguoiDung/ThongTinTaiKhoan', 'POST', username)
+    },
 }
 
 export default userApi;

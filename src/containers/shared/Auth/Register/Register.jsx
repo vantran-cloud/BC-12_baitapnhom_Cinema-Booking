@@ -4,7 +4,6 @@ import './Register.scss';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import userApi from 'apis/userApi';
 import { actFetchUserList } from './module/actions';
 
 class Register extends Component {

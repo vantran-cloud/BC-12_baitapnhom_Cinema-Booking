@@ -9,6 +9,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import authReducer from "containers/shared/Auth/module/reducers";
 import bookingTicketsReducer from "containers/client/SeatPlan/module/reducers";
 import userListReducer from "containers/shared/Auth/Register/module/reducers";
+import lichSuDatVeReducer from "components/LichSuDatVe/module/reducer";
 
 const rootReducer = combineReducers({
   movieReducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   authReducer,
   bookingTicketsReducer,
   userListReducer,
+  lichSuDatVeReducer,
 });
 
 const persistConfig = {

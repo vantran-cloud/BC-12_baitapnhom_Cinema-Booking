@@ -15,10 +15,10 @@ const actFetchAllMovieFail = error => ({
     payload: error,
 })
 
-export const actFetchAllMovie = () => {
+export const actFetchAllMovie = (movieName) => {
     return dispatch => {
         dispatch(actFetchAllMovieRequest());
-        movieApi.fetchAllhMovieApi()
+        movieApi.fetchAllhMovieApi(movieName)
         .then(res => {
             dispatch(actFetchAllMovieSuccess(res.data))
         })

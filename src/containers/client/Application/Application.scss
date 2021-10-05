@@ -1,0 +1,27 @@
+.background {
+  background-image: url("https://tix.vn/app/assets/img/icons/backapp.jpg");
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  .container {
+    .mobile {
+      background-image: url('https://tix.vn/app/assets/img/icons/mobile.png');
+      height: 100%;
+      width: 250px;
+      background-repeat: no-repeat;
+      background-position:center;
+      background-size: cover;
+      margin-top: 180px;
+    }
+
+    .app {
+        width: 300px;
+        border: 15px solid rgb(39, 39, 39);
+        border-radius: 20px;
+        height: 530px;
+        margin-top: 150px;
+        background-color: rgb(39, 39, 39);
+        overflow: hidden;
+    }
+  }
+}

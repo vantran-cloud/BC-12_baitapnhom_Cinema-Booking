@@ -6,8 +6,8 @@ export default class Banner extends Component {
 
             <div id="carouselExampleFade" className="carousel slide carousel-fade" data-ride="carousel">
                 <div className="carousel-inner">
-                    <div className="carousel-item active">
-                        <img className="d-block" src="./images/jumanji.jpeg" style={{ width: '100%', height: "700px" }} alt="First slide" />
+                    <div className="carousel-item active bg-01">
+                        <img className="d-block" src="./images/jumanji.jpeg" style={{ width: '100%', height: "700px"}} alt="First slide" />
                      
                     </div>
                     <div className="carousel-item">

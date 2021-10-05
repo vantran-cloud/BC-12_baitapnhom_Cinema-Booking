@@ -14,7 +14,6 @@ class SeatPlan extends Component {
     renderSeats = () => {
         const { danhSachGheDuocChon, seatPlanInfor } = this.props
         const { danhSachGhe } = seatPlanInfor;
-        console.log(danhSachGheDuocChon);
 
         return danhSachGhe?.map((ghe, idx) => {
 
@@ -42,7 +41,6 @@ class SeatPlan extends Component {
 
     handleDatVe = () => {
         const { danhSachGheDuocChon, currentUser } = this.props;
-        // console.log(this.props.match.params.showtimeId);
         if (danhSachGheDuocChon.length === 0) {
             alert('chưa chọn ghế, hãy chọn ghế!')
         } else {
@@ -52,7 +50,7 @@ class SeatPlan extends Component {
                 taiKhoanNguoiDung: currentUser.taiKhoan,
             }
             this.props.fetchDatve(thongTinDatVe, currentUser.accessToken, thongTinDatVe.maLichChieu)
-            alert('đặt vé thành công')
+            alert('đặt vé thành công!')
             this.props.history.push('/');
         }
     }
@@ -66,8 +64,7 @@ class SeatPlan extends Component {
         return (
             <div className='container'>
                 <div className="row">
-                    <div className="col-5 my-5">
-</div>
+                    <div className="col-5 my-5"></div>
                     <div className="col-7 my-5 text-left">
                         <div style={{ color: 'red' }}>
                             Thời gian còn lại:
@@ -76,7 +73,7 @@ class SeatPlan extends Component {
                     </div>
                 </div>
 
-                <div className="content">
+                <div className="content mb-5">
 
                     <div className="row">
                         <div className="col-8 left">

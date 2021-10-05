@@ -10,7 +10,7 @@ class Theater extends Component {
 
         if (loading) return <Loading />
         return (
-            <div className="container">
+            <div className="container my-5">
                 <h1>Cụm Rạp</h1>
                 <div className="row">
                     <div className="col-2">

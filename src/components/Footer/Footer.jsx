@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Footer extends Component {
     render() {
         return (
-            <div className="footer mt-5" style={{ backgroundColor: '#222', height: "450px" }}>
+            <div className="footer" style={{ backgroundColor: '#222', height: "450px" }}>
                 <div className="container">
                     <div className="row">
                         <div className="col-4 mt-4 text-left">

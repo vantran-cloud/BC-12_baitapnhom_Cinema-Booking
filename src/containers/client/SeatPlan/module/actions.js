@@ -1,6 +1,5 @@
 import bookingTicketsApi from "apis/bookingTickets";
 import {
-  DATVE,
   FETCH_CHONGHE,
   FETCH_SEATPLAN_FAIL,
   FETCH_SEATPLAN_REQUEST,
@@ -37,6 +36,8 @@ export const actFetchSeatPlan = (showtimeId) => {
   };
 };
 
+
+
 export const actChonGhe = ghe => {
   return {
     type: FETCH_CHONGHE,
@@ -44,11 +45,12 @@ export const actChonGhe = ghe => {
   }
 }
 
+
+
 export const actDatVe = ((thongTinDatVe, token, showtimeId) => {
   return async dispatch => {
     try {
       const res = await bookingTicketsApi.bookTicketApi(thongTinDatVe, token)
-      console.log(res.data)
       await dispatch(actFetchSeatPlan(showtimeId))
     }
     catch(error){
