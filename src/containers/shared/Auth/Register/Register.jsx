@@ -172,7 +172,7 @@ class Register extends Component {
                             <p>Please fill in this form to create an account.</p>
                             <hr />
                             <div className="row">
-                                <input type="text" placeholder="Name" name="hoTen" id="text" value={this.state.user.hoTen}
+                                <input type="text" placeholder="Full Name" name="hoTen" id="text" value={this.state.user.hoTen}
                                     onChange={this.handleOnChange}
                                     onBlur={this.handleError}
                                     onKeyUp={this.handleError} />
@@ -190,7 +190,7 @@ class Register extends Component {
                                     {this.state.errors.soDt}
                                 </smail>
 
-                                <input type="text" placeholder="Name" name="taiKhoan" id="text" value={this.state.user.taiKhoan}
+                                <input type="text" placeholder="Username" name="taiKhoan" id="text" value={this.state.user.taiKhoan}
                                     onChange={this.handleOnChange}
                                     onBlur={this.handleError}
                                     onKeyUp={this.handleError} />

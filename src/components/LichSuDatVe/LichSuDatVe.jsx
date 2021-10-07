@@ -4,6 +4,7 @@ import { actLaydanhSachRap, actLichSuDatVe } from './module/actions';
 import { connect } from 'react-redux';
 import Loading from 'components/Loading/Loading';
 import moment from 'moment';
+import { actFetchAllMovie } from 'containers/client/Home/module/actions';
 
 class LichSuDatVe extends Component {
     handleLichSuDatVe = () => {
@@ -24,32 +25,33 @@ class LichSuDatVe extends Component {
             this.props.danhSachRap.map(heThongRap => {
                 if (heThongRap.maHeThongRap === dsg.maHeThongRap) {
                     ve = { ...ve, logoRap: heThongRap.logo }
-                }})
-
-                this.props.listMovie.map(movie => {
-                    if(movie.tenPhim === ttdv.tenPhim){
-                        ve = { ...ve, hinhAnh: movie.hinhAnh}
-                    }
-                })
-
-                ve = {
-                    ...ve,
-                    tenPhim: ttdv.tenPhim,
-                    ngayDat: ttdv.ngayDat,
-                    tenHeThongRap: dsg.tenHeThongRap,
-                    tenCumRap: dsg.tenCumRap,
-                    tenRap: dsg.tenRap,
-                    tenGhe: dsg.tenGhe,
                 }
-                arrLSDV.push(ve);
-            }));
+            })
+
+            this.props.listMovie.map(movie => {
+                if (movie.tenPhim === ttdv.tenPhim) {
+                    ve = { ...ve, hinhAnh: movie.hinhAnh }
+                }
+            })
+
+            ve = {
+                ...ve,
+                tenPhim: ttdv.tenPhim,
+                ngayDat: ttdv.ngayDat,
+                tenHeThongRap: dsg.tenHeThongRap,
+                tenCumRap: dsg.tenCumRap,
+                tenRap: dsg.tenRap,
+                tenGhe: dsg.tenGhe,
+            }
+            arrLSDV.push(ve);
+        }));
 
         console.log(arrLSDV);
         return arrLSDV;
     }
 
     render() {
-        const { loading } = this.props;
+        const { loading, thongTinTaiKhoan } = this.props;
 
         if (loading) return <Loading />
         return (
@@ -59,16 +61,61 @@ class LichSuDatVe extends Component {
                     <img style={{ width: '100%', height: '500px' }} src="./images/vutru.jpeg" alt="" />
                 </div>
                 <div className="noiDung my-5" style={{ height: '100vh' }}>
-                    <h3 className="my-5">Thông Tin Đặt Vé</h3>
+                    <h3 className="my-5 w-full">Thông Tin Đặt Vé</h3>
                     <div>
                         <nav>
                             <div className="nav nav-tabs" id="nav-tab" role="tablist">
                                 <a className="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Thông Tin Cá Nhân</a>
+
+
                                 <a className="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Lịch Sử Đặt Vé</a>
                             </div>
                         </nav>
                         <div className="tab-content" id="nav-tabContent">
-                            <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
+                            <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div className="row">
+                                    <div className="col-6 mt-5">
+                                        <form className="form-inline">
+                                            <div className="form-group mb-3">
+                                                <label className="mr-3">Tài khoản</label>
+                                                <input type="text" style={{ width: "400px" }} value={thongTinTaiKhoan.taiKhoan} className="form-control" />
+                                            </div>
+                                        </form>
+
+
+                                        <form className="form-inline">
+                                            <div className="form-group my-3">
+                                                <label className="mr-3">Mật khẩu</label>
+                                                <input type="password" style={{ width: "400px" }} value={thongTinTaiKhoan.matKhau} className="form-control" />
+                                            </div>
+                                        </form>
+
+                                        <form className="form-inline">
+                                            <div className="form-group my-3">
+                                                <label style={{ marginRight: '35px'}}>Họ tên</label>
+                                                <input type="text" style={{ width: "400px" }} value={thongTinTaiKhoan.hoTen} className="form-control" />
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div className="col-6 mt-5">
+                                        <form className="form-inline">
+                                            <div className="form-group my-3">
+                                                <label style={{ marginRight: '65px'}}>Email</label>
+                                                <input type="email" style={{ width: "400px" }} value={thongTinTaiKhoan.email} className="form-control" />
+                                            </div>
+                                        </form>
+
+                                        <form className="form-inline">
+                                            <div className="form-group my-3">
+                                                <label className="mr-3">Số điện thoại</label>
+                                                <input type="number" style={{ width: "400px" }} value={thongTinTaiKhoan.soDT} className="form-control" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
                             <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"
                                 style={{ overflowY: "scroll", height: "600px", boxSizing: "content-box" }}>
 
@@ -79,12 +126,12 @@ class LichSuDatVe extends Component {
                                             <div className="d-flex p-3">
 
                                                 <div className="text-left">
-                                                    <img src={ttdv.hinhAnh} alt="" style={{ width: "100px", height: "100px"}}/>
+                                                    <img src={ttdv.hinhAnh} alt="" style={{ width: "100px", height: "100px" }} />
                                                 </div>
                                                 <div className="text-left ml-4">
                                                     <div className="d-flex">
                                                         <div className="hinhNenRap">
-                                                            <img src={ttdv.logoRap} alt="" style={{ width: "40px", height: "40px"}} />
+                                                            <img src={ttdv.logoRap} alt="" style={{ width: "40px", height: "40px" }} />
                                                         </div>
                                                         <div className="tenRap ml-2">
                                                             <h6>{ttdv.tenHeThongRap}</h6>
@@ -117,7 +164,9 @@ class LichSuDatVe extends Component {
         }
 
         this.props.thongTinDatVe(user);
-        this.props.layDSR()
+        this.props.layDSR();
+
+        this.props.fetchAllMovie()
     }
 }
 
@@ -128,7 +177,7 @@ const mapStateToProps = state => ({
     danhSachRap: state.lichSuDatVeReducer.danhSachRap,
 
     listMovie: state.movieReducer.listMovie,
-  
+
 })
 
 
@@ -139,6 +188,10 @@ const mapDispatchToProps = dispatch => ({
 
     layDSR: () => {
         dispatch(actLaydanhSachRap())
+    },
+
+    fetchAllMovie: () => {
+        dispatch(actFetchAllMovie());
     }
 
 })

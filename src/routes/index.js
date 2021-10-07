@@ -47,7 +47,7 @@ export const clientRoutes = [
         path: '/lichSuDatVe',
         component: LichSuDatVe,
         exact: false,
-        isPrivate: false,
+        isPrivate: true,
     },
    
 ];
